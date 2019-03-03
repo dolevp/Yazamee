@@ -91,7 +91,7 @@ class QuestionScreen extends React.Component {
             height: hp('24%'),
             borderRadius: 10,
             overflow: 'hidden',
-            backgroundColor: this.state.currentQuestion == index + 1 ? '#009688' : 'transparent',
+            backgroundColor: this.state.currentQuestion == (7 - index) ? '#00BCD4' : 'transparent',
           }}
         >
           <CardItem>
@@ -114,8 +114,8 @@ class QuestionScreen extends React.Component {
             </Body>
           </CardItem>
           <CardItem footer>
-            <Text style={{ color: '#00796B' }}>
-              {index + 1}
+            <Text style={{ color: this.state.currentQuestion == (7 - index) ? '#00BCD4' : 'transparent' }}>
+              {7 - index}
 
   / 7
             </Text>
@@ -159,7 +159,7 @@ class QuestionScreen extends React.Component {
             layoutCardOffset={hp('0.73%')}
             layout="default"
             inactiveSlideOpacity={0.4}
-            firstItem={0}
+            firstItem={6}
             scrollEnabled={false}
             slideStyle={{ flex: 1 }}
           />
@@ -186,7 +186,7 @@ class QuestionScreen extends React.Component {
                 );
 
                 this.props.adjustSum(this.state.value);
-                this._carousel.snapToNext(
+                this._carousel.snapToPrev(
                   (animated = true),
                   (fireCallback = true),
                 );
@@ -197,7 +197,7 @@ class QuestionScreen extends React.Component {
               }}
               minimumTrackTintColor="#fff"
               thumbTintColor="#fff"
-              maximumTrackTintColor="#757575"
+              maximumTrackTintColor="#9E9E9E"
             />
             <View style={styles.sliderStepsView}>
               <EntypoIcon
@@ -208,7 +208,7 @@ class QuestionScreen extends React.Component {
               <EntypoIcon
                 name="dot-single"
                 style={{
-                  color: this.state.value >= 2 ? '#EEEEEE' : '#757575',
+                  color: this.state.value >= 2 ? '#EEEEEE' : '#9E9E9E',
                   height: 50,
                   zIndex: -1,
                 }}
@@ -217,7 +217,7 @@ class QuestionScreen extends React.Component {
               <EntypoIcon
                 name="dot-single"
                 style={{
-                  color: this.state.value >= 3 ? '#EEEEEE' : '#757575',
+                  color: this.state.value >= 3 ? '#EEEEEE' : '#9E9E9E',
                   height: 50,
                   zIndex: -1,
                 }}
@@ -226,7 +226,7 @@ class QuestionScreen extends React.Component {
               <EntypoIcon
                 name="dot-single"
                 style={{
-                  color: this.state.value >= 4 ? '#EEEEEE' : '#757575',
+                  color: this.state.value >= 4 ? '#EEEEEE' : '#9E9E9E',
                   height: 50,
                   zIndex: -1,
                 }}
@@ -235,7 +235,7 @@ class QuestionScreen extends React.Component {
               <EntypoIcon
                 name="dot-single"
                 style={{
-                  color: this.state.value >= 5 ? '#EEEEEE' : '#757575',
+                  color: this.state.value >= 5 ? '#EEEEEE' : '#9E9E9E',
                   height: 50,
                   zIndex: -1,
                 }}
@@ -259,7 +259,7 @@ class QuestionScreen extends React.Component {
                   });
 
                   this._carousel.snapToItem(
-                    0,
+                    6,
                     (animated = true),
                     (fireCallback = true),
                   );
@@ -276,7 +276,6 @@ class QuestionScreen extends React.Component {
                 name="ios-return-right"
                 size={28}
                 style={styles.icon}
-                color="#26A69A"
               />
               <Text style={styles.buttonText}>
                 התחל מחדש

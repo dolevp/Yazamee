@@ -64,8 +64,14 @@ class IntroScreen extends React.Component {
       <Icon style={{ backgroundColor: 'transparent' , paddingTop:hp('20%')}} name={props.icon} size={200} color="white" />
       </Animatable.View>}
 
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.text}>{props.text}</Text>
+        <View style={{flex: 1}}>
+          <View style={{flex: 1, marginBottom: hp('10%'), alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={styles.title}>{props.title}</Text>
+          </View>
+          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={styles.text}>{props.text}</Text>
+          </View>
+        </View>
 
     </LinearGradient>
   );

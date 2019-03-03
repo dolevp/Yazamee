@@ -1,9 +1,7 @@
 /* jshint esversion: 6 */
 
 import React, { Component } from 'react';
-import {
-  AsyncStorage,
-} from 'react-native';
+import { AsyncStorage } from 'react-native';
 import IntroScreen from '../IntroScreen/IntroScreen';
 import QuestionScreen from '../QuestionScreen/QuestionScreen';
 import ResultScreen from '../ResultScreen/ResultScreen';
@@ -18,11 +16,9 @@ export default class Main extends Component {
     this.resetSum = this.resetSum.bind(this);
     this.addSum = this.addSum.bind(this);
     this.state = {
-
       countQuestion: 1,
       answerSum: 0,
       firstLaunch: null,
-
     };
   }
 
@@ -60,7 +56,17 @@ export default class Main extends Component {
 
   render() {
     if (this.state.firstLaunch == 'false') {
-      if (this.state.countQuestion <= 7) return <QuestionScreen currQuestion={this.state.countQuestion} resetSum={this.resetSum} adjustSum={this.addSum} changeVal={this.changeValue} sum={this.state.answerSum} />;
+      if (this.state.countQuestion <= 7) {
+        return (
+          <QuestionScreen
+            currQuestion={this.state.countQuestion}
+            resetSum={this.resetSum}
+            adjustSum={this.addSum}
+            changeVal={this.changeValue}
+            sum={this.state.answerSum}
+          />
+        );
+      }
 
       if (this.state.answerSum > 26) return <ResultScreen success="true" />;
 

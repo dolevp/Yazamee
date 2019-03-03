@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 const styles = StyleSheet.create({
@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    paddingHorizontal: wp('15%'),
-    paddingBottom: hp('18%'),
+    paddingHorizontal: wp('12%'),
+    paddingBottom: hp('16%'),
     fontSize: wp('5.5%'),
 
   },
@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    paddingTop: hp('7%'),
+    paddingTop: hp('3%'),
 
-  }
+  },
 });
 
-export default styles
+export default styles;

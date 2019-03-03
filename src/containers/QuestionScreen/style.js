@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 12,
     zIndex: 15,
-    color: '#00897B',
+    color: '#3700B3',
     marginRight: 23,
 
   },
   icon: {
-    color: '#00897B',
+    color: '#3700B3',
     marginLeft: 15,
   },
   resetButton: {
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#fff',
     overflow: 'hidden',
+    marginLeft: wp('1%'),
 
   },
 
