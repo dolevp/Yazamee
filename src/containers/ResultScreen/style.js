@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
 
     flex: 1,
     backgroundColor: '#4caf50',
+    justifyContent: 'center',
     // justifyContent: 'center',
-    alignItems: 'center',
 
 
   },
@@ -18,8 +18,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '900',
     textAlign: 'center',
-    paddingHorizontal: wp('7%'),
-    marginBottom: hp('17%'),
 
 
   },
@@ -30,13 +28,58 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
+  congratzView: {
+
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: wp('9%'),
+    marginVertical: -hp('10%'),
+    paddingTop: hp('3%'),
+
+  },
+  resultIconView: {
+
+    flex: 1,
+    marginHorizontal: wp('20%'),
+    paddingTop: hp('4%'),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+
+
+  },
+  iconListView: {
+    flex: 0.2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: hp('50%'),
+
+  },
+  actionText: {
+
+    color: '#fff',
+    fontSize: wp('5'),
+    textAlign: 'center',
+    marginTop: -hp('50%'),
+  },
+  actionView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: -hp('40%'),
+
+  },
   congratz: {
     fontSize: wp('6%'),
     color: '#fff',
     fontWeight: '900',
     textAlign: 'center',
-    paddingHorizontal: wp('7%'),
-    marginBottom: hp('33%'),
+    marginBottom: hp('15%'),
+
 
   },
   ohnoText: {
@@ -47,6 +90,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: '10%',
     paddingBottom: '5%',
+
+
+  },
+  buttonView: {
+
+    position: 'absolute',
+    paddingBottom: hp('15%'),
+
+  },
+  failedView: {
+    flex: 0.8,
+    marginTop: hp('25%'),
+    marginBottom: hp('30%'),
+    alignItems: 'center',
+    paddingBottom: hp('10%'),
+    justifyContent: 'center',
+    marginTop: hp('1%'),
 
 
   },

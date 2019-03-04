@@ -65,10 +65,10 @@ class IntroScreen extends React.Component {
       </Animatable.View>}
 
         <View style={{flex: 1}}>
-          <View style={{flex: 1, marginBottom: hp('10%'), alignItems: 'center', justifyContent: 'center'}}>
+          <View style={styles.titleContainer}>
             <Text style={styles.title}>{props.title}</Text>
           </View>
-          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={styles.textContainer}>
             <Text style={styles.text}>{props.text}</Text>
           </View>
         </View>

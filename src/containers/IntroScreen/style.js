@@ -12,9 +12,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    paddingHorizontal: wp('12%'),
-    paddingBottom: hp('16%'),
-    fontSize: wp('5.5%'),
+    fontSize: wp('5%'),
 
   },
   title: {
@@ -23,6 +21,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     textAlign: 'center',
     paddingTop: hp('3%'),
+
+  },
+  textContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal: wp('4%'),
+    marginBottom: hp('8%'),
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginVertical: -hp('4%'),
+  },
+  titleContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: hp('5%'),
 
   },
 });

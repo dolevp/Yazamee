@@ -110,10 +110,9 @@ const styles = StyleSheet.create({
   prevButtonContainer: {
 
     flex: 1,
-    paddingHorizontal: wp('20%'),
-    marginHorizontal: wp('9%'),
     marginTop: hp('7%'),
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
   },
   buttonText: {
@@ -135,7 +134,6 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#fff',
     overflow: 'hidden',
-    marginLeft: wp('1%'),
 
   },
 
