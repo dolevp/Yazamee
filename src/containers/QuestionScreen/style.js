@@ -97,12 +97,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     zIndex: 2,
-    marginTop: -60,
   },
   barContainer: {
 
     flex: 1,
-    paddingBottom: -20,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 50,
@@ -119,12 +117,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     zIndex: 15,
     color: '#3700B3',
-    marginRight: 23,
+    marginStart: 23,
 
   },
   icon: {
     color: '#3700B3',
-    marginLeft: 15,
+    marginEnd: 15,
   },
   resetButton: {
 

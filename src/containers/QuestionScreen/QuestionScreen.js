@@ -6,12 +6,12 @@ import {
   View,
   Text,
   Dimensions,
+  Slider
 
 } from 'react-native';
 import {
   Card, Button, CardItem, Body,
 } from 'native-base';
-import Slider from 'react-native-slider';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import Carousel from 'react-native-snap-carousel';
 import { LinearGradient } from 'expo';
@@ -89,7 +89,7 @@ class QuestionScreen extends React.Component {
             height: hp('24%'),
             borderRadius: 10,
             overflow: 'hidden',
-            backgroundColor: this.state.currentQuestion == (7 - index) ? '#00BCD4' : 'transparent',
+            backgroundColor: this.state.currentQuestion == (7-index) ? '#00BCD4' : 'transparent',
           }}
         >
           <CardItem>
@@ -99,7 +99,7 @@ class QuestionScreen extends React.Component {
                   fontSize: 16,
                   fontWeight: '300',
                   right: 0,
-                  textAlign: 'right',
+                  // textAlign: 'start',
                   color: '#424242',
                   height: hp('11%'),
                   backgroundColor: 'transparent',
@@ -112,8 +112,8 @@ class QuestionScreen extends React.Component {
             </Body>
           </CardItem>
           <CardItem footer>
-            <Text style={{ color: this.state.currentQuestion == (7 - index) ? '#00BCD4' : 'transparent' }}>
-              {7 - index}
+            <Text style={{ color: this.state.currentQuestion == (7-index) ? '#00BCD4' : 'transparent' }}>
+              {7-index}
 
   / 7
             </Text>
@@ -157,7 +157,7 @@ class QuestionScreen extends React.Component {
             layoutCardOffset={hp('0.73%')}
             layout="default"
             inactiveSlideOpacity={0.4}
-            firstItem={6}
+            firstItem={0}
             scrollEnabled={false}
             slideStyle={{ flex: 1 }}
           />
@@ -168,12 +168,11 @@ class QuestionScreen extends React.Component {
 
             <Slider
               value={this.state.value}
-              style={{ width: 230, zIndex: 90 }}
+              style={{ width: 230, zIndex: 90}}
               onValueChange={value => this.handleValueChange(value)}
               minimumValue={1}
               maximumValue={5}
               step={1}
-              disabled={false}
               onSlidingComplete={() => {
                 this.setState(
                   { currentQuestion: this.state.currentQuestion + 1 },
@@ -184,7 +183,7 @@ class QuestionScreen extends React.Component {
                 );
 
                 this.props.adjustSum(this.state.value);
-                this._carousel.snapToPrev(
+                this._carousel.snapToNext(
                   (animated = true),
                   (fireCallback = true),
                 );
@@ -257,7 +256,7 @@ class QuestionScreen extends React.Component {
                   });
 
                   this._carousel.snapToItem(
-                    6,
+                    0,
                     (animated = true),
                     (fireCallback = true),
                   );
@@ -270,14 +269,15 @@ class QuestionScreen extends React.Component {
               }}
               style={styles.resetButton}
             >
+            <Text style={styles.buttonText}>
+              התחל מחדש
+            </Text>
               <IonIcon
                 name="ios-return-right"
                 size={28}
                 style={styles.icon}
               />
-              <Text style={styles.buttonText}>
-                התחל מחדש
-              </Text>
+
             </Button>
 
           </View>

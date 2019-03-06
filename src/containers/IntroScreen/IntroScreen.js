@@ -4,10 +4,7 @@ import {
   Text,
   Image,
   TouchableHighlight,
-  I18nManager
 } from "react-native";
-I18nManager.forceRTL(false);
-I18nManager.allowRTL(false);
 import React from "react";
 import { LinearGradient } from "expo";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
@@ -75,7 +72,7 @@ class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: slides.length - 1
+      activeIndex: 0
     };
   }
 
@@ -123,39 +120,37 @@ class IntroScreen extends React.Component {
           onSnapToItem={slideIndex =>
             this.setState({ activeIndex: slideIndex })
           }
-          layout="stack"
-          firstItem={slides.length - 1}
+          firstItem={0}
         />
         {this.pagination}
         <View style={styles.nextSkipContainer}>
+        <TouchableHighlight
+          underlayColor="transparent"
+          style={styles.sideButton}
+          onPress={() => {
+            if (this.state.activeIndex == slides.length - 1) {
+              //last slide
+              this.props.onSkipOrFinish();
+            } else {
+              this._carousel.snapToNext();
+            }
+          }}
+        >
+          <Text style={styles.nextText}>
+            {this.state.activeIndex == slides.length - 1 ? "סיים" : "הבא"}
+          </Text>
+        </TouchableHighlight>
           <TouchableHighlight
             underlayColor="transparent"
             style={styles.sideButton}
             onPress={() => {
-              if (this.state.activeIndex < slides.length - 1) {
-                //last slide
+              if (this.state.activeIndex < slides.length - 1 ) {
                 this.props.onSkipOrFinish();
 
             }}}
           >
             <Text style={styles.skipText}>
-              {this.state.activeIndex > 0 ? "דלג" : ""}
-            </Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="transparent"
-            style={styles.sideButton}
-            onPress={() => {
-              if (this.state.activeIndex == 0) {
-                //last slide
-                this.props.onSkipOrFinish();
-              } else {
-                this._carousel.snapToPrev();
-              }
-            }}
-          >
-            <Text style={styles.nextText}>
-              {this.state.activeIndex == 0 ? "סיים" : "הבא"}
+              {this.state.activeIndex < slides.length - 1 ? "דלג" : ""}
             </Text>
           </TouchableHighlight>
         </View>

@@ -1,15 +1,13 @@
 /* jshint esversion: 6 */
 
 import { AsyncStorage, I18nManager } from 'react-native';
-I18nManager.allowRTL(false);
-I18nManager.forceRTL(false);
 import React, { Component } from 'react';
 import QuestionScreen from '../QuestionScreen/QuestionScreen';
 import ResultScreen from '../ResultScreen/ResultScreen';
 import IntroScreen from '../IntroScreen/IntroScreen';
 
 
-
+I18nManager.forceRTL(true)
 // const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
 export default class Main extends Component {
@@ -28,13 +26,13 @@ export default class Main extends Component {
 
   onSkipOrFinish() {
     this.setState({ firstLaunch: 'false' });
-    AsyncStorage.setItem('alreadyLaunched', AsyncStorage.getItem('alreadyLaunched') + 1);
+    AsyncStorage.setItem('alreadyLaunched', 'true');
   }
 
   componentDidMount() {
     AsyncStorage.getItem('alreadyLaunched').then((value) => {
-      if (value < 2) {
-        AsyncStorage.setItem('alreadyLaunched', AsyncStorage.getItem('alreadyLaunched') + 1); // No need to wait for `setItem` to finish, although you might want to handle errors
+      if (value != null) {
+        AsyncStorage.setItem('alreadyLaunched', 'true'); // No need to wait for `setItem` to finish, although you might want to handle errors
         this.setState({ firstLaunch: 'true' });
       } else {
         this.setState({ firstLaunch: 'false' });
