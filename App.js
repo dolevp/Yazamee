@@ -1,7 +1,12 @@
 import { I18nManager } from 'react-native';
 
-I18nManager.forceRTL(false);
-I18nManager.allowRTL(false);
+if(I18nManager.isRTL){
+
+  I18nManager.forceRTL(false);
+  I18nManager.allowRTL(false);
+  Expo.Util.Reload()
+
+}
 
 import Main from './src/containers/Main/Main';
 

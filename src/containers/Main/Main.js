@@ -28,13 +28,13 @@ export default class Main extends Component {
 
   onSkipOrFinish() {
     this.setState({ firstLaunch: 'false' });
-    AsyncStorage.setItem('alreadyLaunched', 'true');
+    AsyncStorage.setItem('alreadyLaunched', AsyncStorage.getItem('alreadyLaunched') + 1);
   }
 
   componentDidMount() {
     AsyncStorage.getItem('alreadyLaunched').then((value) => {
-      if (value == null) {
-        AsyncStorage.setItem('alreadyLaunched', 'true'); // No need to wait for `setItem` to finish, although you might want to handle errors
+      if (value < 2) {
+        AsyncStorage.setItem('alreadyLaunched', AsyncStorage.getItem('alreadyLaunched') + 1); // No need to wait for `setItem` to finish, although you might want to handle errors
         this.setState({ firstLaunch: 'true' });
       } else {
         this.setState({ firstLaunch: 'false' });
