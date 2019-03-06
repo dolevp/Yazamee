@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: -hp('20%')
+    marginBottom: -hp('12.5%')
   },
   titleContainer: {
     flex: 5,

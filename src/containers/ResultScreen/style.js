@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: wp('9%'),
     marginVertical: -hp('10%'),
-    paddingTop: hp('3%'),
+    paddingTop: hp('6.2%'),
 
   },
   resultIconView: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '900',
     textAlign: 'center',
-    marginBottom: hp('15%'),
+    marginBottom: hp('5%'),
 
 
   },
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
   },
   failedView: {
     flex: 0.8,
-    marginTop: hp('25%'),
     marginBottom: hp('30%'),
+    paddingHorizontal: wp('7%'),
     alignItems: 'center',
     paddingBottom: hp('10%'),
     justifyContent: 'center',
