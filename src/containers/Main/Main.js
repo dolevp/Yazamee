@@ -1,10 +1,14 @@
 /* jshint esversion: 6 */
 
+import { AsyncStorage, I18nManager } from 'react-native';
+I18nManager.allowRTL(false);
+I18nManager.forceRTL(false);
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
-import IntroScreen from '../IntroScreen/IntroScreen';
 import QuestionScreen from '../QuestionScreen/QuestionScreen';
 import ResultScreen from '../ResultScreen/ResultScreen';
+import IntroScreen from '../IntroScreen/IntroScreen';
+
+
 
 // const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
@@ -39,15 +43,11 @@ export default class Main extends Component {
   }
 
   changeValue(value) {
-    this.setState({ countQuestion: value }, () => {
-      console.log('countQuestion', this.state.countQuestion);
-    });
+    this.setState({ countQuestion: value });
   }
 
   addSum(val) {
-    this.setState({ answerSum: this.state.answerSum + val }, () => {
-      console.log('answerSum', this.state.answerSum);
-    });
+    this.setState({ answerSum: this.state.answerSum + val });
   }
 
   resetSum() {

@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: hp('50%'),
+    marginBottom: hp('54%'),
 
   },
   actionText: {
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: -hp('40%'),
+    paddingHorizontal: wp('8%'),
 
   },
   congratz: {

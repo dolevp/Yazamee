@@ -1,16 +1,16 @@
 /* jshint esversion: 6 */
 import React, { Component } from 'react';
 import {
-  StyleSheet, View, Text, Linking,
+  View, Text, Linking, I18nManager,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import AntIcon from 'react-native-vector-icons/AntDesign';
+import {
+  FontAwesome, MaterialCommunityIcons as MaterialIcons, Feather as FeatherIcons, AntDesign as AntIcons,
+} from '@expo/vector-icons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import styles from './style';
 
+I18nManager.allowRTL(false);
 
 class ResultScreen extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class ResultScreen extends React.Component {
             duration={3000}
           >
 
-            <Icon name="lightbulb-o" size={200} color="#fff" />
+            <FontAwesome name="lightbulb-o" size={200} color="#fff" />
 
           </Animatable.View>
           <View style={styles.congratzView}>
@@ -46,11 +46,11 @@ class ResultScreen extends React.Component {
             style={styles.iconListView}
           >
 
-            <AntIcon name="rocket1" size={wp('10%')} color="#FFF" />
-            <AntIcon name="arrowleft" size={wp('10%')} color="#FFF" />
-            <AntIcon name="tool" size={wp('10%')} color="#FFF" />
-            <AntIcon name="arrowleft" size={wp('10%')} color="#FFF" />
-            <MaterialIcon name="coffee-outline" size={wp('12%')} color="#FFF" />
+            <AntIcons name="rocket1" size={wp('10%')} color="#FFF" />
+            <AntIcons name="arrowleft" size={wp('10%')} color="#FFF" />
+            <AntIcons name="tool" size={wp('10%')} color="#FFF" />
+            <AntIcons name="arrowleft" size={wp('10%')} color="#FFF" />
+            <MaterialIcons name="coffee-outline" size={wp('12%')} color="#FFF" />
 
 
           </Animatable.View>
@@ -65,14 +65,14 @@ class ResultScreen extends React.Component {
             </Animatable.Text>
 
             <Animatable.View animation="bounce" iterationCount={1} delay={4000} style={styles.buttonView}>
-              <FeatherIcon.Button borderRadius={wp('60%')} name="send" backgroundColor="white" size={wp('6%')} iconStyle={{ color: '#4caf50' }} onPress={() => Linking.openURL('mailto:26moti@walla.com')}>
+              <FeatherIcons.Button borderRadius={wp('60%')} name="send" backgroundColor="white" size={wp('6%')} iconStyle={{ color: '#4caf50' }} onPress={() => Linking.openURL('mailto:yazamee.app@gmail.com')}>
                 <Text style={{
                   fontSize: wp('4%'), paddingHorizontal: wp('3%'), color: '#4caf50',
                 }}
                 >
             נשמע מתאים, שלח אימייל!
                 </Text>
-              </FeatherIcon.Button>
+              </FeatherIcons.Button>
             </Animatable.View>
           </View>
         </View>
@@ -87,7 +87,7 @@ class ResultScreen extends React.Component {
         <View style={styles.resultIconView}>
           <Animatable.Text animation="rotate" delay={3000} iterationCount="infinite" duration={3000} style={{/* paddingTop: '20%', paddingBottom: '5%' */}}>
 
-            <AntIcon name="closecircleo" size={200} color="#fff" />
+            <AntIcons name="closecircleo" size={200} color="#fff" />
 
           </Animatable.Text>
         </View>
@@ -109,11 +109,11 @@ class ResultScreen extends React.Component {
         </Animatable.Text>
         <View style={styles.buttonView}>
           <Animatable.View animation="bounce" iterationCount={1} delay={4000} style={{ paddingTop: hp('70%') }}>
-            <FeatherIcon.Button name="send" backgroundColor="white" borderRadius={wp('60%')} size={wp('6%')} iconStyle={{ color: '#E53935' }} onPress={() => Linking.openURL('mailto:26moti@gmail.com')}>
+            <FeatherIcons.Button name="send" backgroundColor="white" borderRadius={wp('60%')} size={wp('6%')} iconStyle={{ color: '#E53935' }} onPress={() => Linking.openURL('mailto:yazamee.app@gmail.com')}>
               <Text style={{ fontSize: wp('4%'), paddingHorizontal: wp('3%'), color: '#E53935' }}>
           נשמע מתאים, שלח אימייל!
               </Text>
-            </FeatherIcon.Button>
+            </FeatherIcons.Button>
           </Animatable.View>
         </View>
       </View>

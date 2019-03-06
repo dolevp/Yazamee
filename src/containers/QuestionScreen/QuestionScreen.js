@@ -6,7 +6,6 @@ import {
   View,
   Text,
   Dimensions,
-  I18nManager,
 
 } from 'react-native';
 import {
@@ -23,7 +22,6 @@ import {
 } from 'react-native-responsive-screen';
 import styles from './style';
 
-I18nManager.allowRTL(false);
 const slideText = true;
 let carousel;
 let bgCard;

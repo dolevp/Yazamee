@@ -2,17 +2,19 @@ import { StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
+
 const styles = StyleSheet.create({
-  mainContent: {
+  container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   text: {
     color: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    fontSize: wp('5%'),
+    fontSize: wp('6%'),
+    marginTop: hp('4%')
 
   },
   title: {
@@ -20,23 +22,59 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    paddingTop: hp('3%'),
+    paddingTop: hp('20%'),
 
   },
   textContainer: {
-    flex: 1,
+    flex: 5,
     alignItems: 'center',
-    marginHorizontal: wp('4%'),
-    marginBottom: hp('8%'),
+    marginHorizontal: wp('5%'),
+    marginBottom: hp('3%'),
     justifyContent: 'center',
     flexDirection: 'row',
     marginVertical: -hp('4%'),
   },
-  titleContainer: {
-    flex: 1,
+  iconContainer: {
+    flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: hp('5%'),
+    marginBottom: -hp('20%')
+  },
+  titleContainer: {
+    flex: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+  nextSkipContainer: {
+    alignItems: 'center',
+    width: wp('100%'),
+    zIndex: 3,
+    position:'absolute',
+    backgroundColor:'transparent',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    flex: 1,
+    paddingHorizontal: wp('7%'),
+    paddingTop: hp('75%')
+
+  },
+  sideButton: {
+
+      height: hp('10%')
+  },
+  nextText: {
+
+    fontSize: wp('5%'),
+    color: '#fff',
+
+
+  },
+  skipText: {
+
+    fontSize: wp('5%'),
+    color: '#fff',
+
 
   },
 });

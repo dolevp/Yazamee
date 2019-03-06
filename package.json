@@ -22,6 +22,7 @@
     "react-native-fontawesome": "^6.0.1",
     "react-native-material-design": "^0.3.7",
     "react-native-responsive-screen": "^1.2.0",
+    "react-native-restart": "0.0.9",
     "react-native-simple-animations": "^0.2.0",
     "react-native-slider": "^0.11.0",
     "react-native-snap-carousel": "^3.7.5",
