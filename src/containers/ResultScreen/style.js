@@ -36,14 +36,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: wp('9%'),
     marginVertical: -hp('10%'),
-    paddingTop: hp('6.2%'),
+    paddingTop: hp('8%'),
 
   },
   resultIconView: {
 
     flex: 1,
     marginHorizontal: wp('20%'),
-    paddingTop: hp('4%'),
+    paddingTop: hp('3%'),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
