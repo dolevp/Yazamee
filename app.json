@@ -20,7 +20,8 @@
       "fallbackToCacheTimeout": 0
     },
     android: {
-      "package": "com.motipearl.yazamee"
+      "package": "com.motipearl.yazamee",
+      "permissions": []
 
     },
     "assetBundlePatterns": [
