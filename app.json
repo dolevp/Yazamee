@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "1.0.1",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -19,16 +19,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    android: {
+    "android": {
       "package": "com.motipearl.yazamee",
-      "permissions": []
-
+      "permissions": [],
+      "versionCode": 2
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
