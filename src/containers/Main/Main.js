@@ -1,13 +1,11 @@
 /* jshint esversion: 6 */
 
-import { AsyncStorage, I18nManager } from 'react-native';
-import React, { Component } from 'react';
-import QuestionScreen from '../QuestionScreen/QuestionScreen';
-import ResultScreen from '../ResultScreen/ResultScreen';
-import IntroScreen from '../IntroScreen/IntroScreen';
+import { AsyncStorage } from "react-native";
+import React, { Component } from "react";
+import QuestionScreen from "../QuestionScreen/QuestionScreen";
+import ResultScreen from "../ResultScreen/ResultScreen";
+import IntroScreen from "../IntroScreen/IntroScreen";
 
-
-I18nManager.forceRTL(true)
 // const B = (props) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
 export default class Main extends Component {
@@ -20,22 +18,22 @@ export default class Main extends Component {
     this.state = {
       countQuestion: 1,
       answerSum: 0,
-      firstLaunch: null,
+      firstLaunch: null
     };
   }
 
   onSkipOrFinish() {
-    this.setState({ firstLaunch: 'false' });
-    AsyncStorage.setItem('alreadyLaunched', 'true');
+    this.setState({ firstLaunch: "false" });
+    AsyncStorage.setItem("alreadyLaunched", "true");
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('alreadyLaunched').then((value) => {
-      if (value != null) {
-        AsyncStorage.setItem('alreadyLaunched', 'true'); // No need to wait for `setItem` to finish, although you might want to handle errors
-        this.setState({ firstLaunch: 'true' });
+    AsyncStorage.getItem("alreadyLaunched").then(value => {
+      if (value != "o") {
+        this.setState({ firstLaunch: "true" });
+        AsyncStorage.setItem("alreadyLaunched", "true"); // No need to wait for `setItem` to finish, although you might want to handle errors
       } else {
-        this.setState({ firstLaunch: 'false' });
+        this.setState({ firstLaunch: "false" });
       }
     });
   }
@@ -53,7 +51,7 @@ export default class Main extends Component {
   }
 
   render() {
-    if (this.state.firstLaunch == 'false') {
+    if (this.state.firstLaunch == "false") {
       if (this.state.countQuestion <= 7) {
         return (
           <QuestionScreen

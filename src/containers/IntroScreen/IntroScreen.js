@@ -1,18 +1,14 @@
 import {
-  StyleSheet,
   View,
   Text,
-  Image,
   TouchableHighlight,
+  I18nManager,
+  Platform
 } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import * as Animatable from "react-native-animatable";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp
-} from "react-native-responsive-screen";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import styles from "./style";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 
@@ -23,7 +19,7 @@ const slides = [
     text:
       "לאחר סיום שבעת השאלות, תוכל לדעת אחת ולתמיד- האם להיות יזם זה בשבילך?",
     icon: "comment-o",
-    colors: ["#BA68C8", "#9C27B0"]
+    colors: ["#7b1fa2", "#5e35b1"]
   },
   {
     key: "slide",
@@ -40,7 +36,7 @@ const slides = [
     text: "גלה האם אתה מתאים להיות יזם - בשבע שאלות פשוטות",
     icon: "hourglass-start",
     colors: ["#29b6f6", "#1e88e5"]
-  },
+  }
 ];
 
 class IntroScreen extends React.Component {
@@ -105,7 +101,12 @@ class IntroScreen extends React.Component {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor:
-            this._carousel && slides[this._carousel.currentIndex].colors[0]
+            (this._carousel &&
+              I18nManager.isRTL &&
+              slides[slides.length - 1 - this.state.activeIndex].colors[1]) ||
+            (this._carousel &&
+              !I18nManager.isRTL &&
+              slides[this.state.activeIndex].colors[1])
         }}
       >
         <Carousel
@@ -124,30 +125,30 @@ class IntroScreen extends React.Component {
         />
         {this.pagination}
         <View style={styles.nextSkipContainer}>
-        <TouchableHighlight
-          underlayColor="transparent"
-          style={styles.sideButton}
-          onPress={() => {
-            if (this.state.activeIndex == slides.length - 1) {
-              //last slide
-              this.props.onSkipOrFinish();
-            } else {
-              this._carousel.snapToNext();
-            }
-          }}
-        >
-          <Text style={styles.nextText}>
-            {this.state.activeIndex == slides.length - 1 ? "סיים" : "הבא"}
-          </Text>
-        </TouchableHighlight>
           <TouchableHighlight
             underlayColor="transparent"
             style={styles.sideButton}
             onPress={() => {
-              if (this.state.activeIndex < slides.length - 1 ) {
+              if (this.state.activeIndex == slides.length - 1) {
+                //last slide
                 this.props.onSkipOrFinish();
-
-            }}}
+              } else {
+                this._carousel.snapToNext();
+              }
+            }}
+          >
+            <Text style={styles.nextText}>
+              {this.state.activeIndex == slides.length - 1 ? "סיים" : "הבא"}
+            </Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="transparent"
+            style={styles.sideButton}
+            onPress={() => {
+              if (this.state.activeIndex < slides.length - 1) {
+                this.props.onSkipOrFinish();
+              }
+            }}
           >
             <Text style={styles.skipText}>
               {this.state.activeIndex < slides.length - 1 ? "דלג" : ""}
