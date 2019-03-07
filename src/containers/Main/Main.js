@@ -29,7 +29,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     AsyncStorage.getItem("alreadyLaunched").then(value => {
-      if (value != "o") {
+      if (value == null) {
         this.setState({ firstLaunch: "true" });
         AsyncStorage.setItem("alreadyLaunched", "true"); // No need to wait for `setItem` to finish, although you might want to handle errors
       } else {
