@@ -2,7 +2,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from "react-native-responsive-screen";
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   iconListView: {
     flex: 0.2,
-    flexDirection: "row",
+    flexDirection: !I18nManager.isRTL ? "row" :  "row-reverse",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: hp("54%")

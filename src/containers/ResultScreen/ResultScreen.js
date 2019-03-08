@@ -53,6 +53,7 @@ class ResultScreen extends React.Component {
             <MaterialIcons name="coffee-outline" size={wp('12%')} color="#FFF" />
 
 
+
           </Animatable.View>
           <View style={styles.actionView}>
             <Animatable.Text

@@ -22,7 +22,6 @@ import {
 import styles from "./style";
 
 I18nManager.allowRTL(true);
-I18nManager.forceRTL(true);
 
 const slideText = true;
 let carousel;
@@ -64,6 +63,7 @@ class QuestionScreen extends React.Component {
       sum: 0
     };
     this._renderItem = this._renderItem.bind(this);
+    console.log(I18nManager.isRTL)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -204,7 +204,7 @@ class QuestionScreen extends React.Component {
           <View style={styles.barContainer}>
             <Slider
               value={this.state.value}
-              style={{ width: 230, position: "absolute", zIndex: 100 }}
+              style={{ width: 230, zIndex: 100 }}
               onValueChange={value => this.handleValueChange(value)}
               minimumValue={1}
               maximumValue={5}
@@ -281,10 +281,12 @@ class QuestionScreen extends React.Component {
               />
             </View>
           </View>
-          <View style={styles.sliderTextContainer}>
-            <Text style={styles.sliderTextMin}>לא נכון</Text>
-            <Text style={styles.sliderTextMax}>נכון מאוד</Text>
-          </View>
+            <View style={styles.sliderTextContainer}>
+              <Text style={styles.sliderTextMin}>לא נכון</Text>
+              <Text style={styles.sliderTextMax}>נכון מאוד</Text>
+            </View>
+
+
           <View style={styles.prevButtonContainer}>
             <Button
               underlayColor="#EEEEEE"
