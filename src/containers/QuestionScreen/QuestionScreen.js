@@ -22,6 +22,7 @@ import {
 import styles from "./style";
 
 I18nManager.allowRTL(true);
+I18nManager.forceRTL(true);
 
 const slideText = true;
 let carousel;
@@ -60,10 +61,11 @@ class QuestionScreen extends React.Component {
       value: 3,
       questionString: "בדרך כלל אני מתמודד/ת בהצלחה עם משימות לא פשוטות",
       currentQuestion: 1,
-      sum: 0
+      sum: 0,
+      canScroll: true
     };
     this._renderItem = this._renderItem.bind(this);
-    console.log(I18nManager.isRTL)
+    console.log(I18nManager.isRTL);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -210,23 +212,25 @@ class QuestionScreen extends React.Component {
               maximumValue={5}
               step={1}
               onSlidingComplete={() => {
-                this.setState(
-                  { currentQuestion: this.state.currentQuestion + 1 },
-                  () => {
-                    // console.log(this.state.currentQuestion)
-                    this.props.changeVal(this.state.currentQuestion);
-                  }
-                );
+                if (this.state.canScroll) {
+                  this.setState(
+                    { currentQuestion: this.state.currentQuestion + 1 },
+                    () => {
+                      // console.log(this.state.currentQuestion)
+                      this.props.changeVal(this.state.currentQuestion);
+                    }
+                  );
 
-                this.props.adjustSum(this.state.value);
-                this._carousel.snapToNext(
-                  (animated = true),
-                  (fireCallback = true)
-                );
+                  this.props.adjustSum(this.state.value);
+                  this._carousel.snapToNext(
+                    (animated = true),
+                    (fireCallback = true)
+                  );
 
-                this.handleValueChange(3);
+                  this.handleValueChange(3);
 
-                this._resetSlider();
+                  this._resetSlider();
+                }
               }}
               minimumTrackTintColor={ACTIVE_COLOR}
               thumbTintColor="#4dd0e1"
@@ -281,11 +285,10 @@ class QuestionScreen extends React.Component {
               />
             </View>
           </View>
-            <View style={styles.sliderTextContainer}>
-              <Text style={styles.sliderTextMin}>לא נכון</Text>
-              <Text style={styles.sliderTextMax}>נכון מאוד</Text>
-            </View>
-
+          <View style={styles.sliderTextContainer}>
+            <Text style={styles.sliderTextMin}>לא נכון</Text>
+            <Text style={styles.sliderTextMax}>נכון מאוד</Text>
+          </View>
 
           <View style={styles.prevButtonContainer}>
             <Button

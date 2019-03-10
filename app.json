@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "2.1.0",
+    "version": "2.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,7 +22,7 @@
     "android": {
       "package": "com.motipearl.yazamee",
       "permissions": [],
-      "versionCode": 3
+      "versionCode": 4
     },
     "assetBundlePatterns": [
       "**/*"

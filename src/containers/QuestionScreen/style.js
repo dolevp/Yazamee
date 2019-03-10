@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   sliderTextContainer: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: I18nManager.isRTL ? 'row' : 'row-reverse',
     alignItems: "center",
     justifyContent: "space-between",
     marginHorizontal: wp("12%"),
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   sliderStepsView: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: I18nManager.isRTL ? "row" : "row-reverse",
     alignItems: "center",
     justifyContent: "space-evenly",
     position: "absolute"
